@@ -1,5 +1,6 @@
 package com.dcj.ecommerce_platform_be.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,7 +25,12 @@ public class Product {
     private String brand;
     private BigDecimal price;
     private String category;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-YYYY")
     private Date releaseDate;
     private boolean isAvailable;
     private int quantity;
+
+    public Product(int i) {
+        this.productId = i;
+    }
 }
